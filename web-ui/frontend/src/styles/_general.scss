@@ -1,0 +1,54 @@
+html {
+  font-weight: 100;
+  font-size: 14px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html,
+body,
+.app {
+  height: 100%;
+}
+
+a {
+  cursor: pointer;
+  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+th {
+  font-weight: 600;
+}
+
+label {
+  font-weight: 600;
+}
+
+#app {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 400;
+  src: local('Myriad Pro Regular'), url('../fonts/Myriad-Pro-Regular.woff') format('woff');
+}
+  
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 600;
+  src: local('Myriad Pro Semibold'), url('../fonts/Myriad-Pro-Semibold.woff') format('woff');
+}
+  
+@font-face {
+  font-family: 'Myriad Pro';
+  font-weight: 700;
+  src: local('Myriad Pro Bold'), url('../fonts/Myriad-Pro-Bold.woff') format('woff');
+}
+
+

@@ -1,0 +1,35 @@
+os:
+  - linux
+services:
+  - docker
+language: node_js
+node_js:
+  - "9.8.0"
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+jdk:
+  - oraclejdk8
+sudo: false
+cache:
+  directories:
+    - ui/node_modules
+before_install:
+  - java -version
+  - export CHROME_BIN=chromium-browser
+services:
+ - xvfb
+script:
+  - cd ui && mvn -q clean install -DskipTests
+  - cd ../ui && mvn -q spring-boot:run &
+  - cd ../resource && mvn -q clean install -DskipTests
+  - mvn -q spring-boot:run &
+  - cd ../ui && npm run e2e
+notifications:
+  webhooks:
+    on_success: always
+    on_failure: always
+    on_start: false

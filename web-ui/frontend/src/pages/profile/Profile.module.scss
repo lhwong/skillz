@@ -1,0 +1,117 @@
+
+
+ @import '../../styles/app';
+
+ .root {
+   
+ }
+ 
+
+.location {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #999;
+}
+
+ .profilePhoto {
+  width: 80px;
+  height: 80px;
+}
+.bold {font-weight: 700;}
+button {
+  height: 48px;
+  color: #919191;
+  text-align: center;
+  padding: 0 20px;
+  border-radius: 32px;
+  border: 1px solid #EDEDED;
+  background: #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+section {padding: 32px 0;}
+section:not(:last-child) {
+    border-bottom: 1px solid #D5D5D5;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1em;
+  max-width: 1024px;
+}
+@media (max-width: 1150px) {
+  .container {
+      padding-left: 100px;
+  }
+}
+h1, h2 {
+  margin: 0;
+  font-weight: 600;
+  color: #202020;
+}
+h1 {font-size: 32px;}
+/* Sections */
+.profile .bio {
+  position: relative;
+  max-width: 745px;
+}
+.profile .cameraBtn {
+  position: absolute;
+  bottom: -5px;
+  right: -16px;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  background: #707070;
+  box-shadow: none;
+}
+.profile .editBtn {
+  position: absolute;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  background: #707070;
+  box-shadow: none;
+}
+.profile .bio .editBtn {
+  top: 0;
+  right: -16px;
+}
+.profile .user-info .editBtn {
+  bottom: 3px;
+  right: -46px;
+}
+@media (max-width: 410px) {
+  .profile .user-info .editBtn {
+      right: -6px;
+  }
+}
+.profile .progress {
+  position: relative;
+  height: 48px;
+  padding: 16px;
+  font-size: 18px;
+  color: #FFFFFF;
+  border-radius: 8px;
+  background: #51D5FD;
+}
+.profile .progress p {z-index: 9;}
+.profile .progress .progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+  background: #23C3F3;
+  z-index: 0;
+}
+@media (max-width: 620px) {
+  .profile .progress {
+      margin: 16px 0;
+  }
+}
+

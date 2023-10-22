@@ -1,0 +1,49 @@
+server:
+  port: 8080
+spring:
+  aop:
+    proxy-target-class: true
+  main:
+    allow-bean-definition-overriding: true
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://18.139.4.3:8080/auth/realms/demo/protocol/openid-connect/token
+      userAuthorizationUri: http://18.139.4.3:8080/auth/realms/demo/protocol/openid-connect/auth
+      clientId: skillzstreet
+      clientSecret: 033cb1bf-8526-41ec-8372-69227e7ea886
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqmG80/bWYfVzbX2jjDCP2itWth2kRhoue6BfXt/FX+Ih1YuDrO8EvFjCa14aO7VUmscNmAaauWykygxfc7gM5bPSiH0rM31ZyXBtqvT31CxGpYOKz+fjLof2Q8akXi721nIsvMbuze6MfnbSqDnP9Bi1KZEItVOvhQR3K11ov7nTLTL5bqqNwL6WesmGnc7y8yIRPnZyUc1JSPeM0rv515IoEX6kVSdQ9hT7RCNqUSYwzA/XkP9IIqSuB4qQlhck3/JgSKM0j0RuhvNuG/7aFuTYe1G8UjvNmOUp8tJo3AX5cZYlagpTkvyTzcKYlts8a9EVXRKP52qfS6C4Rm5UgQIDAQAB
+          -----END PUBLIC KEY-----
+          
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:9000
+      sensitiveHeaders:
+    api:
+      path: /api/**
+      url: http://localhost:9001
+      sensitiveHeaders:    
+    user:
+      path: /user/**
+      url: http://18.139.4.3:8080/auth/realms/demo/protocol/openid-connect/userinfo
+      sensitiveHeaders: 
+    lms:
+      path: /lms/**
+      url: http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com
+    talentspy:
+      path: /talentspy/**
+      url: https://recruitment.talentspy.thecads.com/talentspy/   
+    command:
+      path: /command/**
+      url: http://localhost:9001
+      sensitiveHeaders:    
+logging:
+  level:
+    org.springframework.security: DEBUG

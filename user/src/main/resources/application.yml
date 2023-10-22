@@ -1,0 +1,75 @@
+server:
+  port: 9001
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    
+security:
+  oauth2:
+    resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqmG80/bWYfVzbX2jjDCP2itWth2kRhoue6BfXt/FX+Ih1YuDrO8EvFjCa14aO7VUmscNmAaauWykygxfc7gM5bPSiH0rM31ZyXBtqvT31CxGpYOKz+fjLof2Q8akXi721nIsvMbuze6MfnbSqDnP9Bi1KZEItVOvhQR3K11ov7nTLTL5bqqNwL6WesmGnc7y8yIRPnZyUc1JSPeM0rv515IoEX6kVSdQ9hT7RCNqUSYwzA/XkP9IIqSuB4qQlhck3/JgSKM0j0RuhvNuG/7aFuTYe1G8UjvNmOUp8tJo3AX5cZYlagpTkvyTzcKYlts8a9EVXRKP52qfS6C4Rm5UgQIDAQAB
+          -----END PUBLIC KEY-----
+spring:
+  rabbitmq:
+    hostname: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+  
+# ===============================
+# = DATA SOURCE
+# ===============================
+  datasource:
+    url: jdbc:mysql://localhost:3306/user?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: password
+
+
+# Keep the connection alive if idle for a long time (needed in production)
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+
+# Use spring.jpa.properties.* for Hibernate native properties (the prefix is
+# stripped before adding them to the entity manager).
+
+# Show or not log for each sql query
+  jpa:
+    show-sql: false
+
+# Hibernate ddl auto (create, create-drop, update): with "update" the database
+# schema will be automatically updated accordingly to java entities found in
+# the project
+    hibernate:
+      ddl-auto: update
+
+# Naming strategy
+# spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      
+
+# Allows Hibernate to generate SQL optimized for a particular DBMS
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+
+axon:
+  amqp:
+    exchange: AmqpEvents
+
+  eventhandling:
+    processors:
+      user:
+        source: userEventsMethod
+      

@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <h1>Greeting</h1>
+  <div [hidden]="!isAuthenticated()">
+    <p>The ID is {{greeting.id}}</p>
+    <p>The content is {{greeting.content}}</p>
+  </div>
+  <div [hidden]="isAuthenticated()">
+    <p>Login to see your greeting</p>
+  </div>
+  
+
+<div><a href="http://wonglh.talentspy.localhost:8765/talentspy/analyses/skills">Skill assessment</a></div>
+
+<!--<div><a href="http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com/auth/login/tpa-saml/?auth_entry=login&next=%2F&idp=default">Explore all courses</a></div>
+
+<div><a href="http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com/auth/login/tpa-saml/?auth_entry=login&next=%2Fdashboard&idp=default">Explore all courses</a></div>
+<div><a href="http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com/dashboard">Explore all courses</a></div>-->
+<!--
+<div><a href="http://learning.skillzstreet.com/dashboard?tpa_hint=saml-default">Explore all courses</a></div>
+<div><a href="http://learning.skillzstreet.com/courses/course-v1:edX+DemoX+Demo_Course/courseware/d8a6192ade314473a78242dfeedfbf5b/?tpa_hint=saml-default">Course</a></div>
+-->
+<div><a href="http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com/dashboard?tpa_hint=saml-default">Explore all courses</a></div>
+<div><a href="http://ec2-18-140-93-224.ap-southeast-1.compute.amazonaws.com/courses/course-v1:edX+DemoX+Demo_Course/courseware/d8a6192ade314473a78242dfeedfbf5b/?tpa_hint=saml-default">Course</a></div>
+
+
